@@ -102,3 +102,11 @@ rev1.rID = r1.rID and
 rev2.rID = r2.rID and
 rev1.name < rev2.name
 group by r1.mID;
+
+Q6 For each rating that is the lowest (fewest stars) currently in the database, return the reviewer name, movie title, and number of stars.
+
+select name, title, stars
+from Rating r, Reviewer rev, Movie m
+where stars = (select min(stars) from Rating) and
+r.rID = rev.rID and
+m.mID = r.mID;
