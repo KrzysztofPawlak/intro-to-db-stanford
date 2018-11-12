@@ -1,0 +1,57 @@
+Q1 
+<!ELEMENT countries (country*)>
+<!ELEMENT country (city*,language*)>
+<!ELEMENT city (name,population)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT population (#PCDATA)>
+
+<!ATTLIST country name CDATA #IMPLIED>
+<!ATTLIST country population CDATA #IMPLIED>
+<!ATTLIST country area CDATA #IMPLIED>
+<!ATTLIST language percentage CDATA #IMPLIED>
+
+Q2
+<!ELEMENT Course_Catalog (Department*)>
+
+<!ELEMENT Department (Title,Chair,Course*)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Chair (Professor)>
+<!ELEMENT Professor (First_Name,Middle_Initial*,Last_Name)>
+<!ELEMENT First_Name (#PCDATA)>
+<!ELEMENT Last_Name (#PCDATA)>
+<!ELEMENT Course (Title,Description*,Instructors,Prerequisites*)>
+<!ELEMENT Description (#PCDATA)>
+<!ELEMENT Instructors (Lecturer*,Professor*)*>
+<!ELEMENT Lecturer (First_Name,Middle_Initial*,Last_Name)>
+<!ELEMENT Middle_Initial (#PCDATA)>
+<!ELEMENT Prerequisites (Prereq*)>
+<!ELEMENT Prereq (#PCDATA)>
+
+<!ATTLIST Department Code CDATA #IMPLIED>
+<!ATTLIST Course Number CDATA #IMPLIED>
+<!ATTLIST Course Enrollment CDATA #IMPLIED>
+
+Q3 
+<!ELEMENT Course_Catalog (Department*)>
+
+<!ELEMENT Department (Title,Course*,(Professor*,Lecturer*)*)>
+<!ELEMENT Title (#PCDATA)>
+<!ELEMENT Course (Title,Description*)>
+<!ELEMENT Description (#PCDATA|Courseref)*>
+<!ELEMENT Courseref (#PCDATA)>
+<!ELEMENT Professor (First_Name,Middle_Initial*,Last_Name)>
+<!ELEMENT Lecturer (First_Name,Middle_Initial*,Last_Name)>
+<!ELEMENT First_Name (#PCDATA)>
+<!ELEMENT Last_Name (#PCDATA)>
+<!ELEMENT Middle_Initial (#PCDATA)>
+
+<!ATTLIST Course Number CDATA #IMPLIED>
+<!ATTLIST Course Prerequisites CDATA #IMPLIED>
+<!ATTLIST Course Instructors CDATA #IMPLIED>
+<!ATTLIST Course Enrollment CDATA #IMPLIED>
+<!ATTLIST Department Code CDATA #IMPLIED>
+<!ATTLIST Department Chair CDATA #IMPLIED>
+<!ATTLIST Courseref Number CDATA #IMPLIED>
+<!ATTLIST Professor InstrID CDATA #IMPLIED>
+<!ATTLIST Lecturer InstrID CDATA #IMPLIED>
