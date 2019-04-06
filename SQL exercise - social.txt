@@ -45,3 +45,14 @@ FROM(
     WHERE Highschooler.ID = Likes.ID2 
     GROUP BY ID2)
 WHERE res > 1;
+
+Q1 Extra Practice
+For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades. 
+SELECT h1.name, h1.grade, h2.name, h2.grade
+FROM Highschooler h1
+INNER JOIN Likes
+INNER JOIN Highschooler h2
+WHERE 
+    ID1 = h1.ID AND 
+    ID2 = h2.ID AND 
+    ID2 NOT IN (SELECT ID1 FROM Likes);
