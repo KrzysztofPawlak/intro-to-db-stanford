@@ -8,3 +8,11 @@ If two students A and B are friends, and A likes B but not vice-versa, remove th
 DELETE FROM Likes WHERE ID1 IN (SELECT ID1 FROM Likes l 
 WHERE ID2 IN (SELECT ID2 FROM Friend WHERE l.ID1 = ID1) AND 
     ID2 NOT IN (SELECT ID1 FROM Likes WHERE l.ID2 = ID1 AND l.ID1 = ID2));
+	
+*Q3
+For all cases where A is friends with B, and B is friends with C, add a new friendship for the pair A and C. Do not add duplicate friendships, friendships that already exist, or friendships with oneself. (This one is a bit challenging; congratulations if you get it right.) 
+INSERT INTO Friend
+SELECT DISTINCT f1.ID1, f2.ID2
+FROM Friend f1, Friend f2
+WHERE f1.ID2 = f2.ID1 AND f1.ID1 <> f2.ID2 
+    AND F1.ID1 NOT IN (SELECT f3.ID1 FROM Friend f3 where f3.ID2 = f2.ID2);
