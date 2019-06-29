@@ -1,0 +1,5 @@
+Q1. Return all Title elements (of both departments and courses). 
+doc("courses.xml")/Course_Catalog//Title
+
+Q2. Return last names of all department chairs. 
+doc("courses.xml")/Course_Catalog/Department/Chair/Professor/Last_Name
