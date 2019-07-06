@@ -9,3 +9,6 @@ doc("courses.xml")/Course_Catalog/Department/Course[@Enrollment > 500]/Title
 
 Q4. Return titles of departments that have some course that takes "CS106B" as a prerequisite. 
 doc("courses.xml")/Course_Catalog/Department[Course/Prerequisites/Prereq = "CS106B"]/Title
+
+Q5. Return last names of all professors or lecturers who use a middle initial. Don't worry about eliminating duplicates. 
+doc("courses.xml")/Course_Catalog/Department//(Professor|Lecturer)[Middle_Initial != ""]/Last_Name
