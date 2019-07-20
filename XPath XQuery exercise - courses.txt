@@ -15,3 +15,6 @@ doc("courses.xml")/Course_Catalog/Department//(Professor|Lecturer)[Middle_Initia
 
 Q6. Return the count of courses that have a cross-listed course (i.e., that have "Cross-listed" in their description).
 count(doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, "Cross")])
+
+Q7. Return the average enrollment of all courses in the CS department. 
+avg(doc("courses.xml")/Course_Catalog/Department[@Code='CS']/Course/data(@Enrollment))
