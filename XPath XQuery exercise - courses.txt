@@ -18,3 +18,6 @@ count(doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, 
 
 Q7. Return the average enrollment of all courses in the CS department. 
 avg(doc("courses.xml")/Course_Catalog/Department[@Code='CS']/Course/data(@Enrollment))
+
+Q8. Return last names of instructors teaching at least one course that has "system" in its description and enrollment greater than 100.
+doc("courses.xml")/Course_Catalog/Department/Course[contains(Description, 'system') and data(@Enrollment) > 100]/Instructors//Last_Name
