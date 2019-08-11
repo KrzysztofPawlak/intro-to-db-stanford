@@ -2,3 +2,6 @@ Q1
 Return the course number of the course that is cross-listed as "LING180". 
 doc("courses.xml")/Course_Catalog//Course[contains(Description, "LING")]/data(@Number)
 
+Q2
+Return course numbers of courses taught by an instructor with first name "Daphne" or "Julie". 
+doc("courses.xml")/Course_Catalog//Course[Instructors//First_Name = "Julie" or Instructors//First_Name = "Daphne"]/data(@Number)
