@@ -1,0 +1,4 @@
+Q1
+Return the course number of the course that is cross-listed as "LING180". 
+doc("courses.xml")/Course_Catalog//Course[contains(Description, "LING")]/data(@Number)
+
