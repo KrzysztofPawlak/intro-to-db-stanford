@@ -1,0 +1,3 @@
+Q1
+Return the area of Mongolia. 
+doc("countries.xml")/countries/country[@name = "Mongolia"]/data(@area)
