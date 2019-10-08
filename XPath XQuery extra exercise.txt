@@ -5,3 +5,7 @@ doc("courses.xml")/Course_Catalog//Course[contains(Description, "LING")]/data(@N
 Q2
 Return course numbers of courses taught by an instructor with first name "Daphne" or "Julie". 
 doc("courses.xml")/Course_Catalog//Course[Instructors//First_Name = "Julie" or Instructors//First_Name = "Daphne"]/data(@Number)
+
+Q3
+Return titles of courses that have both a lecturer and a professor as instructors. Return each title only once. 
+doc("courses.xml")/Course_Catalog//Course[Instructors/(Professor and Lecturer)]/Title
