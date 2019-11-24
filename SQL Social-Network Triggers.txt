@@ -18,3 +18,13 @@ BEGIN
     UPDATE Highschooler SET grade = 9 WHERE New.id = id AND New.grade IS NULL;
     UPDATE Highschooler SET grade = NULL WHERE New.id = id AND (New.grade < 9 OR New.grade > 12);
 END;
+
+Q3
+Write a trigger that automatically deletes students when they graduate, i.e., when their grade is updated to exceed 12. 
+
+CREATE TRIGGER Graduate
+AFTER UPDATE OF grade ON Highschooler
+WHEN New.grade > 12
+BEGIN
+    DELETE FROM Highschooler WHERE id = New.id;
+END;
