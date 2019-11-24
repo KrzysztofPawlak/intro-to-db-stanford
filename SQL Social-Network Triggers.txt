@@ -7,3 +7,14 @@ WHEN New.name = 'Friendly'
 BEGIN
     INSERT INTO Likes SELECT New.id, h.id FROM Highschooler AS h WHERE New.grade = h.grade AND h.id != New.id;
 END;
+
+Q2
+Write one or more triggers to manage the grade attribute of new Highschoolers. If the inserted tuple has a value less than 9 or greater than 12, change the value to NULL. On the other hand, if the inserted tuple has a null value for grade, change it to 9. 
+
+CREATE TRIGGER GRADE 
+AFTER INSERT ON Highschooler
+WHEN New.grade IS NULL OR New.grade < 9 OR New.grade > 12
+BEGIN
+    UPDATE Highschooler SET grade = 9 WHERE New.id = id AND New.grade IS NULL;
+    UPDATE Highschooler SET grade = NULL WHERE New.id = id AND (New.grade < 9 OR New.grade > 12);
+END;
