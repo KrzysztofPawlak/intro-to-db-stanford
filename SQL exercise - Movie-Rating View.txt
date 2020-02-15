@@ -20,3 +20,17 @@ BEGIN
     WHERE mID = New.mID
 	AND ratingDate = New.ratingDate;
 END;
+
+Q3 Write an instead-of trigger that enables updates to the mID attribute of view LateRating. 
+
+CREATE TRIGGER movieUpdateId
+INSTEAD OF UPDATE ON LateRating
+FOR EACH ROW
+BEGIN
+    UPDATE Movie
+    SET mID = New.mID
+    WHERE mID = Old.mID;
+    UPDATE Rating
+    SET mID = New.mID
+    WHERE mID = Old.mID;
+END;
