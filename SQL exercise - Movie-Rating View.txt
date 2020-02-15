@@ -34,3 +34,14 @@ BEGIN
     SET mID = New.mID
     WHERE mID = Old.mID;
 END;
+
+Q4 Write an instead-of trigger that enables deletions from view HighlyRated. 
+
+CREATE TRIGGER highlyRatedDelete
+INSTEAD OF DELETE ON HighlyRated
+FOR EACH ROW
+BEGIN
+    DELETE FROM Rating
+    WHERE mID = Old.mID 
+    AND stars > 3;
+END;
