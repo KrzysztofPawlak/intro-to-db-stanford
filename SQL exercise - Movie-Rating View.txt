@@ -1,0 +1,10 @@
+Q1 Write an instead-of trigger that enables updates to the title attribute of view LateRating. 
+
+CREATE TRIGGER movieUpdate
+INSTEAD OF UPDATE ON LateRating
+FOR EACH ROW
+BEGIN
+    UPDATE Movie
+    SET title = New.title
+    WHERE mID = New.mID;
+END;
