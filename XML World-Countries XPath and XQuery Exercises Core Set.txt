@@ -5,3 +5,6 @@ doc("countries.xml")/countries/country[@name = "Mongolia"]/data(@area)
 Q2
 Return the names of all cities that have the same name as the country in which they are located. 
 doc("countries.xml")/countries/country/city[name = doc("countries.xml")/countries/country/@name]/name
+
+Q3
+avg(doc("countries.xml")/countries/country[language = 'Russian']/data(@population))
