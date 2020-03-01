@@ -7,4 +7,10 @@ Return the names of all cities that have the same name as the country in which t
 doc("countries.xml")/countries/country/city[name = doc("countries.xml")/countries/country/@name]/name
 
 Q3
+Return the average population of Russian-speaking countries. 
 avg(doc("countries.xml")/countries/country[language = 'Russian']/data(@population))
+
+Q4
+Return the names of all countries where over 50% of the population speaks German. (Hint: Depending on your solution, you may want to use ".", which refers to the "current element" within an XPath expression.) 
+
+doc("countries.xml")/countries/country[language[data(.) = 'German' and @percentage > 50]]/data(@name)
