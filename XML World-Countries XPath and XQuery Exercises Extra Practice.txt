@@ -1,0 +1,4 @@
+Q1
+Return the names of all countries with population greater than 100 million. 
+
+doc("countries.xml")//country[@population > 100000000]/data(@name)
