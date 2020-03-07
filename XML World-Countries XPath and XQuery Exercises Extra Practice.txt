@@ -27,3 +27,8 @@ Q6
 Return the names of all countries containing a city such that some other country has a city of the same name. (Hint: You might want to use the "preceding" and/or "following" navigation axes for this query, which were not covered in the video or our demo script; they match any preceding or following node, not just siblings.) 
 
 doc("countries.xml")//country[city/name = following::city/name or city/name = preceding::city/name]/data(@name)
+
+Q7
+Return the names of all countries whose name textually contains a language spoken in that country. For instance, Uzbek is spoken in Uzbekistan, so return Uzbekistan. (Hint: You may want to use ".", which refers to the "current element" within an XPath expression.)
+ 
+doc("countries.xml")//country[language[contains(../@name, .)]]/data(@name)
