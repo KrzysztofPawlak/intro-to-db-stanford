@@ -52,3 +52,8 @@ Q11
 Return the number of countries where Russian is spoken. 
 
 count(doc("countries.xml")//country[language = 'Russian'])
+
+Q12
+Return the names of all countries for which the data does not include any languages or cities, but the country has more than 10 million people. 
+
+doc("countries.xml")//country[count(language) = 0 and count(city) = 0 and data(@population) > 10000000]/data(@name)
