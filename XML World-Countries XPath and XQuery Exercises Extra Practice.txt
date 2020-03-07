@@ -22,3 +22,8 @@ Q5
 Return all city names that appear more than once, i.e., there is more than one city with that name in the data. Return only one instance of each such city name. (Hint: You might want to use the "preceding" and/or "following" navigation axes for this query, which were not covered in the video or our demo script; they match any preceding or following node, not just siblings.) 
 
 doc("countries.xml")//country/city[name = following::name]/name
+
+Q6
+Return the names of all countries containing a city such that some other country has a city of the same name. (Hint: You might want to use the "preceding" and/or "following" navigation axes for this query, which were not covered in the video or our demo script; they match any preceding or following node, not just siblings.) 
+
+doc("countries.xml")//country[city/name = following::city/name or city/name = preceding::city/name]/data(@name)
