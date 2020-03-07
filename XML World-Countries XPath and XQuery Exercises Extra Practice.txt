@@ -12,3 +12,8 @@ Q3
 Return the population density of Qatar. Note: Since the "/" operator has its own meaning in XPath and XQuery, the division operator is "div". To compute population density use "(@population div @area)". 
 
 doc("countries.xml")//country[data(@name) = 'Qatar']/data(@population div @area)
+
+Q4
+Return the names of all countries whose population is less than one thousandth that of some city (in any country). 
+
+doc("countries.xml")//country[@population < //city/(population div 1000)]/data(@name)
