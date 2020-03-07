@@ -32,3 +32,8 @@ Q7
 Return the names of all countries whose name textually contains a language spoken in that country. For instance, Uzbek is spoken in Uzbekistan, so return Uzbekistan. (Hint: You may want to use ".", which refers to the "current element" within an XPath expression.)
  
 doc("countries.xml")//country[language[contains(../@name, .)]]/data(@name)
+
+Q8
+Return the names of all countries in which people speak a language whose name textually contains the name of the country. For instance, Japanese is spoken in Japan, so return Japan. (Hint: You may want to use ".", which refers to the "current element" within an XPath expression.) 
+
+doc("countries.xml")//country[language[contains(., ../@name)]]/data(@name)
