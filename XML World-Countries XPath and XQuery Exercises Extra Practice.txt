@@ -47,3 +47,8 @@ Q10
 Return all languages whose name textually contains the name of a country in which the language is spoken. For instance, Icelandic is spoken in Iceland, so return Icelandic. (Hint: Depending on your solution, may want to use data(.), which returns the text value of the "current element" within an XPath expression.) 
 
 doc("countries.xml")//country/language[contains(., ../data(@name))]/text()
+
+Q11
+Return the number of countries where Russian is spoken. 
+
+count(doc("countries.xml")//country[language = 'Russian'])
