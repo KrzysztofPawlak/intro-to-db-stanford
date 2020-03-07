@@ -57,3 +57,8 @@ Q12
 Return the names of all countries for which the data does not include any languages or cities, but the country has more than 10 million people. 
 
 doc("countries.xml")//country[count(language) = 0 and count(city) = 0 and data(@population) > 10000000]/data(@name)
+
+Q13
+Return the name of the country that has the city with the highest population. (Hint: You may need to explicitly cast population numbers as integers with xs:int() to get the correct answer.) 
+
+doc("countries.xml")//country[city/population = max(doc("countries.xml")//country/city/population)]/data(@name)
